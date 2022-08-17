@@ -32,7 +32,7 @@ def mars_news(browser):
       news_title = article.find('div', attrs={"class":"content_title"}).get_text()
       news_date = article.find("div", attrs={"class":"list_date"}).get_text()
       news_summary = article.find("div", attrs={"class":"article_teaser_body"}).get_text()
-      post = {"title" : news_title, "date" : news_date, "summary" : news_summary}
+      post = {"news_title" : news_title, "date" : news_date, "news_summary" : news_summary}
       return post
     except AttributeError:
       return None

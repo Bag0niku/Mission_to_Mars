@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,8 +8,50 @@
     <title> Mission to Mars</title>
 </head>
 <body>
+    <!--All code for the body will be in this div tag -->
     <div class="container">
+        <!-- Jumbotron Header-->
         <div class="jumbotron text-center">
+            <h1>Mission to Mars</h1>
+            <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+
+        </div>
+        <!-- Mars News -->
+        <div class="row" id="mars_news">
+            <div class="col-md-12">
+                <div class="media">
+                    <div class="media-body">
+                        <h2>Latest Mars News:</h2>
+                        <h4 class="media-heading">{{mars.news_title}}</h4>
+                        <p>{{mars.news_summary}}</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        
+        <div class="row">
+            <!-- Featured Image -->
+            <div class="col-md-8" id="mars-featured-image">
+                <div class="media">
+                    <div class="media-body">
+                        <h2>Featured Image:</h2>
+                        <img src="{{mars.featured_image}}" class="img-responsive" alt="Responsive image">
+
+                    </div>
+                </div>
+            </div>
+            <!-- Mars Facts-->
+            <div class="col-md-4" >
+
+                </div class="row" id="mars-facts">
+                    <h4>Mars Facts</h4>
+                    {{mars.facts | safe}}
+
+                </div>
+            </div>
+
 
         </div>
 
