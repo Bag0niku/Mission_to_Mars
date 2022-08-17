@@ -77,7 +77,27 @@ def mars_facts():
     except Exception as e:
       print(e)
       raise f"Import Error: {e}"
-    
+
+def mars_hemispheres(browser):
+    url = "https://astrogeology.usgs.gov" 
+    search = "/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
+    browser.visit(url+search)
+    time.sleep(1)
+    soup=bs(browser.html, "html.parser")
+    mars = list()
+    for item in face:
+        d = dict()
+        browser.visit(url+item)
+        browser.is_element_present_by_text("OPEN", wait_time=2)
+        soup = bs(browser.html, "html")
+        div = soup.find("div", attrs={"class":"downloads"})
+        img = div.find_all("a")[1].get("href")
+        div = soup.find("div", attrs={"class":"content"})
+        d["title"] = div.find("h2", attrs={"class":"title"}).text
+        d["hemisphere_img"] = img
+        mars.append(d)
+
+
 
 def scrape_all():
     browser = Browser("chrome", executable_path=chromeDriver, headless=True)
