@@ -4,6 +4,7 @@ from webdriver_manager.chrome import ChromeDriverManager as CDM
 from config import chromeDriver
 import pandas as pd
 import datetime as dt
+import time
 
 ### Red Planet Science
    ## - URL: https://redplanetscience.com/
@@ -83,19 +84,24 @@ def mars_hemispheres(browser):
     search = "/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
     browser.visit(url+search)
     time.sleep(1)
-    soup=bs(browser.html, "html.parser")
-    mars = list()
+    soup = bs(browser.html, "html.parser")
+    div = soup.find_all('div', attrs={"class":"item"})
+    face = [item.find("h3").find_parent().get("href") for item in div]
+    mars_imgs = list()
     for item in face:
         d = dict()
         browser.visit(url+item)
-        browser.is_element_present_by_text("OPEN", wait_time=2)
-        soup = bs(browser.html, "html")
+        browser.is_element_present_by_text("OPEN", wait_time=1)
+        soup = bs(browser.html, "html.parser")
         div = soup.find("div", attrs={"class":"downloads"})
-        img = div.find_all("a")[1].get("href")
+        img = div.find_all("a")
         div = soup.find("div", attrs={"class":"content"})
         d["title"] = div.find("h2", attrs={"class":"title"}).text
-        d["hemisphere_img"] = img
-        mars.append(d)
+        d["lg_hemisphere_img"] = img[1].get("href")  # 21 MB .tif file, 
+        d["sm_hemisphere_img"] = img[0].get("href")  # website friendly
+
+        mars_imgs.append(d)
+    return mars_imgs
 
 
 
@@ -105,6 +111,7 @@ def scrape_all():
     news['featured_image'] = mars_images(browser)
     news['facts'] = mars_facts()
     news['last_modified'] = dt.datetime.now()
+    news["hemispheres"] = mars_hemispheres(browser)
     browser.quit()
     return news
 
