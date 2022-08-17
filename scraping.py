@@ -26,7 +26,7 @@ def mars_news(browser):
     ##     - tag: div class = "article_teaser_body" :  location of article summary
     url = "https://redplanetscience.com"    
     browser.visit(url)                                                           # Open an automated browser and visit the url
-    browser.is_element_present_by_css("div.list_text", wait_time=3)              # wait 3 seconds for the needed tag to appear 
+    browser.is_element_present_by_css("div.list_text", wait_time=1)              # wait 3 seconds for the needed tag to appear 
     soup = bs(browser.html, "html.parser")                                       # parse the webpage to be searchable
     try:
       article = soup.find("div", attrs={"class":"row"})
@@ -46,7 +46,7 @@ def mars_images(browser):
     ## Space Images
     url = "https://spaceimages-mars.com/"
     browser.visit(url)                    
-    browser.is_element_present_by_text("FULL IMAGE", wait_time=3)                
+    browser.is_element_present_by_text("FULL IMAGE", wait_time=1)                
     browser.links.find_by_partial_text("FULL IMAGE").click()
     soup = bs(browser.html, "html.parser")
     try:
@@ -86,6 +86,7 @@ def mars_hemispheres(browser):
     time.sleep(1)
     soup = bs(browser.html, "html.parser")
     div = soup.find_all('div', attrs={"class":"item"})
+    ## sm_img = [item.find("a", attrs={"class":"thumb"}).get("href")  for item in div]
     face = [item.find("h3").find_parent().get("href") for item in div]
     mars_imgs = list()
     for item in face:
