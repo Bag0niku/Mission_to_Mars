@@ -4,4 +4,6 @@ Use this web application to scrape a variety of webpages from NASA to gather the
 
 
 ## Preview of the app
+- Preview.html and the image below are what the webpage page will look like. I used the color scheme of the "Terraforming Mars" Boardgame.
+
 ![](/Priveiw.png)
