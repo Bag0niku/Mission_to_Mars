@@ -98,8 +98,8 @@ def mars_hemispheres(browser):
         img = div.find_all("a")
         div = soup.find("div", attrs={"class":"content"})
         d["title"] = div.find("h2", attrs={"class":"title"}).text
-        d["lg_hemisphere_img"] = img[1].get("href")  # 21 MB .tif file, 
-        d["sm_hemisphere_img"] = img[0].get("href")  # website friendly
+        d["lg_hemisphere_img"] = img[1].get("href")  # 21 MB .tif file, not website friendly
+        d["sm_hemisphere_img"] = img[0].get("href")  # large .jpg,  website friendly
 
         mars_imgs.append(d)
     return mars_imgs
