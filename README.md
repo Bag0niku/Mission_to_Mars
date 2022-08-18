@@ -1,2 +1,7 @@
 # Mission_to_Mars
-Use this web application to scrape a variety of webpages from NASA to gather the latest updates. This application uses Flas, BeautifulSoup and Mongo DB to gather and present the information in one convenient location. Use the "Get Latest Update" after launching the application to get the most recent updates from NASA.
+Use this web application to scrape a variety of webpages from NASA to gather the latest updates about Mars. This application uses Flask, BeautifulSoup and Mongo DB to gather and present the information in one convenient location. Click the Button for the Latest Updates after launching the application to get the most recent updates from NASA.
+
+
+
+## Preview of the app
+![](/Priveiw.png)

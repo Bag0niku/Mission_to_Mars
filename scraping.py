@@ -65,13 +65,12 @@ def mars_facts():
     url = "https://galaxyfacts-mars.com/"
     tables = pd.read_html(url)
     try: 
-      columns = tables[0].loc[0, :].to_list()       # getting the column names
-      columns[0] =  "Description"
-      comparison_df = pd.DataFrame(tables[0].loc[1:, :])
+      columns =  ["Description", "Information"]
+      comparison_df = pd.DataFrame(tables[1])
       comparison_df.columns = columns
-      comparison_df.set_index("Description", inplace=True)
-      comparison_df
-      stats = comparison_df.to_html()
+    #   comparison_df.set_index("Description", inplace=True)
+    #   comparison_df.rename_axis(None, axis=0, inplace=True)
+      stats = comparison_df.to_html(index=False)
       return stats
     except AttributeError:
       return None

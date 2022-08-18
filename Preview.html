@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +47,7 @@
         <div id="title" class="jumbotron text-center">
             <h1 style="font-family: sans-serif;font-weight: bolder;color:#e6d6a7;font-size:80px;">
                 <b>Mission to Mars</b></h1>
-            <p><a class="btn btn-warning btn-lg" href="/update" role="button" style="color:#705132"> <b>Click for the <br>Latest Updates</b></a></p>
+            <p><a class="btn btn-warning btn-lg" href="/scrape" role="button" style="color:#705132"> <b>Click for the <br>Latest Updates</b></a></p>
 
         </div>
         <div class="content">    
@@ -56,8 +57,8 @@
                     <div class="media">
                         <div class="media-body">
                             <h2>Latest Mars News:</h2>
-                            <h4 class="media-heading">{{mars.news_title}}</h4>
-                            <p>{{mars.news_summary}}</p>
+                            <h4 class="media-heading">NASA to Reveal Name of Its Next Mars Rover</h4>
+                            <p>After a months-long contest among students to name NASA&#39;s newest Mars rover, the agency will reveal the winning name — and the winning student — this Thursday. </p>
                         </div>
                     </div>
                 </div>
@@ -68,7 +69,7 @@
                     <div class="media">
                         <div class="media-body">
                             <h3>Featured Image:</h3>
-                            <img src="{{mars.featured_image}}" class="img-responsive" alt="Responsive image">
+                            <img src="https://spaceimages-mars.com/image/featured/mars1.jpg" class="img-responsive" alt="Responsive image">
                         </div>
                     </div>
                 </div>
@@ -76,7 +77,52 @@
                 <div class="col-md-3" >
                     </div class="row" id="mars-facts">
                         <h4><b>Mars Planet Facts:</b></h4>
-                        {{mars.facts | safe}}
+                        <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Description</th>
+      <th>Information</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Equatorial Diameter:</td>
+      <td>6,792 km</td>
+    </tr>
+    <tr>
+      <td>Polar Diameter:</td>
+      <td>6,752 km</td>
+    </tr>
+    <tr>
+      <td>Mass:</td>
+      <td>6.39 × 10^23 kg (0.11 Earths)</td>
+    </tr>
+    <tr>
+      <td>Moons:</td>
+      <td>2 ( Phobos &amp; Deimos )</td>
+    </tr>
+    <tr>
+      <td>Orbit Distance:</td>
+      <td>227,943,824 km (1.38 AU)</td>
+    </tr>
+    <tr>
+      <td>Orbit Period:</td>
+      <td>687 days (1.9 years)</td>
+    </tr>
+    <tr>
+      <td>Surface Temperature:</td>
+      <td>-87 to -5 °C</td>
+    </tr>
+    <tr>
+      <td>First Record:</td>
+      <td>2nd millennium BC</td>
+    </tr>
+    <tr>
+      <td>Recorded By:</td>
+      <td>Egyptian astronomers</td>
+    </tr>
+  </tbody>
+</table>
 
 
                         
@@ -88,16 +134,16 @@
                 <h2> <b>The Hemispheres of Mars</b> </h2>
                 <div class="col-md-6 text-center">
                     <div class="media">
-                        <h3>{{mars.hemispheres[0].title}}<br> <small> <a href="{{mars.hemispheres[0].lg_hemisphere_img}}">Download Tif image (21 MB)</a></small></h3>
+                        <h3>Cerberus Hemisphere Enhanced<br> <small> <a href="https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/cerberus_enhanced.tif">Download Tif image (21 MB)</a></small></h3>
 
-                        <img id="mars-img" class="img-circle" src="{{mars.hemispheres[0].sm_hemisphere_img}}">
+                        <img id="mars-img" class="img-circle" src="https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/cerberus_enhanced.tif/full.jpg">
 
                     </div>
                 </div>
                 <div class="col-md-6 text-center">
                     <div class="media">
-                        <h3 >{{mars.hemispheres[1].title}}<br><small> <a href="{{mars.hemispheres[1].lg_hemisphere_img}}">Download Tif image (21 MB)</a></small></h3>
-                        <img id="mars-img" class="img-circle" src="{{mars.hemispheres[1].sm_hemisphere_img}}">
+                        <h3 >Schiaparelli Hemisphere Enhanced<br><small> <a href="https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/schiaparelli_enhanced.tif">Download Tif image (21 MB)</a></small></h3>
+                        <img id="mars-img" class="img-circle" src="https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/schiaparelli_enhanced.tif/full.jpg">
                         
                     </div>
                 </div>
@@ -106,16 +152,16 @@
                 <div class="col-md-6 text-center">
                     <div class="media">
                         <p></br></br></p>
-                        <h3 >{{mars.hemispheres[2].title}}<br><small> <a href="{{mars.hemispheres[2].lg_hemisphere_img}}">Download Tif image (21 MB)</a></small></h3>
-                        <img id="mars-img" class="img-circle" src="{{mars.hemispheres[2].sm_hemisphere_img}}">
+                        <h3 >Syrtis Major Hemisphere Enhanced<br><small> <a href="https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/syrtis_major_enhanced.tif">Download Tif image (21 MB)</a></small></h3>
+                        <img id="mars-img" class="img-circle" src="https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/syrtis_major_enhanced.tif/full.jpg">
                         
                     </div>
                 </div>
                 <div class="col-md-6 text-center">
                     <div class="media">
                         <p><br><br></p>
-                        <h3>{{mars.hemispheres[3].title}}<br><small>  <a href="{{mars.hemispheres[2].lg_hemisphere_img}}">Download Tif image (21 MB)</a></small></h3>
-                        <img id="mars-img" class="img-circle" src="{{mars.hemispheres[3].sm_hemisphere_img}}">
+                        <h3>Valles Marineris Hemisphere Enhanced<br><small>  <a href="https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/syrtis_major_enhanced.tif">Download Tif image (21 MB)</a></small></h3>
+                        <img id="mars-img" class="img-circle" src="https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/valles_marineris_enhanced.tif/full.jpg">
                         <p></p>
                         
                     </div>
