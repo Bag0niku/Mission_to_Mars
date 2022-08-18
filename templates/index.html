@@ -13,17 +13,11 @@
         div {
             background-color : #e6d6a7;
         }
-        h1 {
-            font-family: sans-serif;
-            font-weight: bolder;
-            color: #e6d6a7;
-            font-size: xx-large;
-            !important
-
+        a:hover {
+            color:#e0af26;
         }
         #title {
             background-color: #a34918;
-            !important
         }
         #mars-img {
             padding: 15px;
@@ -31,11 +25,9 @@
             max-width: 500px;
             max-height: 500px;
             align-content: center;
-            !important
         }
         #mars-facts {
             background-color: #eedfcb;
-            !important
         }
         
     </style>
@@ -45,8 +37,9 @@
     <div class="container">
         <!-- Jumbotron Header-->
         <div id="title" class="jumbotron text-center">
-            <h1>Mission to Mars</h1>
-            <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+            <h1 style="font-family: sans-serif;font-weight: bolder;color:#e6d6a7;font-size:80px;">
+                <b>Mission to Mars</b></h1>
+            <p><a class="btn btn-warning btn-lg" href="/scrape" role="button" style="color:#705132"> Scrape New Data</a></p>
 
         </div>
         <div class="content">    
@@ -109,9 +102,9 @@
                 </div>
                 <div class="col-md-6 text-center">
                     <div class="media">
-                        <p></br></br></p>
+                        <p><br><br></p>
                         <h3>{{mars.hemispheres[3].title}}</h3>
-                        <img id="mars-img" src="{{mars.hemispheres[3].sm_hemisphere_img}}" width=600 height=600 align="left">
+                        <img id="mars-img" src="{{mars.hemispheres[3].sm_hemisphere_img}}" width=600 height=600>
                         
                     </div>
                 </div>
